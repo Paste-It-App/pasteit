@@ -1,16 +1,20 @@
 <script>
     /**
-     * @type {string}
-     */
-     export let id;
+    * @type {string}
+    */
+    export let id;
     /**
+    * @type {string}
+    */
+    export let val;
+    /**
+    * @type {string}
+    */
+    export let labelName;
+	/**
      * @type {string}
-     */
-     export let val;
-     /**
-     * @type {string}
-     */
-      export let labelName;
+ 	 */
+	export let isRequired;
 </script>
 
 
@@ -38,5 +42,9 @@
 
 <div class="form-group">
     <label for={id}>{labelName}:</label>
-    <input type="text" id={id} bind:value={val} required>
+    {#if isRequired === "true"}
+        <input type="text" id={id} bind:value={val} required>
+    {:else}
+        <input type="text" id={id} bind:value={val}>
+    {/if}
 </div>
